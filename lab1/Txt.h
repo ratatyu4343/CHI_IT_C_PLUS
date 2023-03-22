@@ -11,6 +11,7 @@ public:
 	Txt(const Txt&);
 	Txt(Txt&&) noexcept;
 	Txt& operator=(const Txt&);
+	Txt& operator=(Txt&&) noexcept;
 	size_t size() const;
 	~Txt();
 private:

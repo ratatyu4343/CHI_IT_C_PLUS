@@ -42,13 +42,24 @@ l1::Txt::Txt(Txt&& other) noexcept {
 	other.strArr = nullptr;
 }
 
-l1::Txt& l1::Txt::operator=(const Txt& other) {
+l1::Txt& l1::Txt::operator = (const Txt& other) {
 	if(this != &other) {
 		delete [] strArr;
 		strCount = other.strCount;
 		strArr = new std::string[strCount];
 		for (size_t i = 0; i < strCount; i++)
 			strArr[i] = other.strArr[i];
+	}
+	return *this;
+}
+
+l1::Txt& l1::Txt::operator = (Txt&& other) noexcept {
+	if(this != &other) {
+		delete [] strArr;
+		strCount = other.strCount;
+		strArr = other.strArr;
+		other.strCount = 0;
+		other.strArr = nullptr;
 	}
 	return *this;
 }
