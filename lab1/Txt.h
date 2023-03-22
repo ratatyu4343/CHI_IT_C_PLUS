@@ -1,6 +1,5 @@
 #ifndef TXT_H_
 #define TXT_H
-#include <istream>
 #include <string>
 
 namespace l1{
