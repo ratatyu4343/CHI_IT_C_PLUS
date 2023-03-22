@@ -1,17 +1,20 @@
 #include "Txt.h"
 #include <istream>
 #include <iostream>
+#include <algorithm>
 
 l1::Txt::Txt() {
 	strCount = 0;
 	strArr = nullptr;
 }
 
-l1::Txt::Txt(const char *str) : l1::Txt::Txt() {
-	try {
+l1::Txt::Txt(const char *file_path) : l1::Txt::Txt() {
+	std::ifstream file(file_path);
+	if (file.is_open()) {
 
-	} catch(...) {
-		std::cerr << "Can't open file " << str;
+	}
+	else {
+		std::cerr << "Can't open file " << file_path;
 	}
 }
 
