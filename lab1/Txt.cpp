@@ -1,7 +1,6 @@
 #include "Txt.h"
-#include <istream>
+#include <fstream>
 #include <iostream>
-#include <algorithm>
 
 l1::Txt::Txt() {
 	strCount = 0;
@@ -9,9 +8,24 @@ l1::Txt::Txt() {
 }
 
 l1::Txt::Txt(const char *file_path) : l1::Txt::Txt() {
-	std::ifstream file(file_path);
-	if (file.is_open()) {
 
+	std::ifstream textFile(file_path);
+	if (textFile.is_open()) {
+		//count of lines
+		std::string strBuff;
+		while(std::getline(textFile, strBuff)) strCount++;
+
+		//memory
+		strArr = new std::string[strCount];
+
+		//read strings
+		textFile.clear();
+		textFile.seekg(std::ios::beg);
+		for (size_t i = 0; i < strCount; i++) {
+			std::getline(textFile, strArr[i]);
+		}
+
+		textFile.close();
 	}
 	else {
 		std::cerr << "Can't open file " << file_path;
