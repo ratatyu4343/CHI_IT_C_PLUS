@@ -20,6 +20,6 @@ size_t l1::Txt::size() const {
 }
 
 l1::Txt::~Txt() {
-
+	delete [] strArr;
 }
 
