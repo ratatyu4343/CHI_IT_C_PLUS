@@ -9,6 +9,7 @@ public:
 	Txt();
 	Txt(const char *);
 	Txt(const Txt&);
+	Txt(Txt&&);
 	size_t size() const;
 	~Txt();
 private:

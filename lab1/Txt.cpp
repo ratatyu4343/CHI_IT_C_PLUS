@@ -35,6 +35,13 @@ l1::Txt::Txt(const Txt& other) {
 		strArr[i] = other.strArr[i];
 }
 
+l1::Txt::Txt(Txt&& other) {
+	strCount = other.strCount;
+	strArr = other.strArr;
+	other.strCount = 0;
+	other.strArr = nullptr;
+}
+
 size_t l1::Txt::size() const {
 	return strCount;
 }
