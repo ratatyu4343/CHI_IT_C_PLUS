@@ -7,7 +7,8 @@ namespace l1{
 class Txt {
 public:
 	Txt();
-	Txt(const char *str);
+	Txt(const char *);
+	Txt(const Txt&);
 	size_t size() const;
 	~Txt();
 private:
